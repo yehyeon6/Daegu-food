@@ -1,0 +1,48 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>식당 상세 페이지</title>
+    <meta charset="utf-8">
+	<link rel="stylesheet" href="{% static 'css/detail.css' %}">
+</head>
+
+{% include 'main/navbar.html' %}
+
+<body>
+    <main>
+        <section class="restaurant-info">
+            <div class="info">
+                <h2>식당이름 : {{food.name}}</h2>
+                <p>별점 : {{food.star}}</p>
+                <p>식당 종류 : {{food.store_type}}</p>
+                <p>주소 : {{food.address}}</p>
+                <p>전화번호 : {{food.call}}</p>
+                <p>연관 키워드 : {{food.menu_keyword}}</p>
+
+            </div>
+        
+            <section class="restaurant-list">
+                <h2>비슷한 식당</h2>
+                {% for id, name, store_type, address in sejong_list %}
+                <ul>
+                    <li>
+                        <div class="restaurant-usa">
+                            <h3>식당 이름 : <a class="restaurant-link" href="../detail/{{id}}">{{name}}</a></h3>
+                            <p>식당 종류 : {{store_type}}</p>
+                            <p>주소: {{address}}</p>
+                        </div>
+                    </li>
+                </ul>
+                {% endfor %}
+            </section>
+        </section>
+        <section class="map-info">
+			<h2>지도</h2>
+			<div class="main-map">
+				{% include 'main/map.html' %}
+			</div>
+
+		</section>
+    </main>
+</body>

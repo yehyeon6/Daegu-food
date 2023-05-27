@@ -1,0 +1,80 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>카테고리 검색</title>
+	<meta charset="utf-8">
+	<link rel="stylesheet" href="{% static 'css/cate.css' %}">
+</head>
+
+{% include 'main/navbar.html' %}
+
+<body>
+    <main>
+        <div>
+            <form action="../cate" method="GET">
+                <button name="cates" type="submit" value="ALL">모든식당</button>
+                <button name="cates" type="submit" value="한식">한식</button>
+                <button name="cates" type="submit" value="패스트푸드">패스트푸드</button>
+                <button name="cates" type="submit" value="커피점/카페">커피점/카페</button>
+                <button name="cates" type="submit" value="일식/수산물">일식/수산물</button>
+                <button name="cates" type="submit" value="중식">중식</button>
+                <button name="cates" type="submit" value="양식">양식</button>
+                <button name="cates" type="submit" value="제과제빵떡케익">제과제빵떡케익</button>
+                <button name="cates" type="submit" value="별식/퓨전요리">별식/퓨전요리</button>
+                <button name="cates" type="submit" value="분식">분식</button>
+                <button name="cates" type="submit" value="부페">부페</button>
+                <button name="cates" type="submit" value="유흥주점">유흥주점</button>
+                <button name="cates" type="submit" value="닭/오리요리">닭/오리요리</button>
+            </form>
+        </div>
+        <div>
+            <h2>{{cate_title}}</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>식당명</th>
+                        <th>식당유형</th>
+                        <th>네이버 별점</th>
+                        <th>주소</th>
+                        <th>전화번호</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for ca in cate_list %}
+                    <tr>
+                        <td><a href="../detail/{{ca.id}}">{{ca.name}}</a></td>
+                        <td>{{ca.cate2}}</td>
+                        <td>{{ca.star}}</td>
+                        <td>{{ca.address}}</td>
+                        <td>{{ca.call}}</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+        <div class="page">
+            <ul class="pagination model">
+                <li><a href="?cates={{cate_title}}&page={{ 1 }}" class="first">first</a></li>
+                
+                {% if page_info.currentPage != 1 and page_info.currentPage > 10 %}
+                <li><a href="?cates={{cate_title}}&page={{page_info.currentPage|add:-10}}" class="arrow left">&lt</a></li>
+                {% endif %}
+
+                {% for pr in pageRange %}
+                {% if pr == page_info.currentPage %}
+                <li class="page-item"><a class="num-active" href="?cates={{cate_title}}&page={{ pr }}">{{ pr }}</a></li>
+                {% else %}
+                <li class="page-item"><a class="num" href="?cates={{cate_title}}&page={{ pr }}">{{ pr }}</a></li>
+                {% endif %}
+                {% endfor %}
+
+                {% if page_info.endPage != page_info.totalPage %}
+                <li> <a href="?cates={{cate_title}}&page={{page_info.currentPage|add:10}}" class="arrow right">&gt</a></li>
+                {% endif %}
+
+                <li><a href="?cates={{cate_title}}&page={{ page_info.totalPage}}" class="last">last</a></li>
+            </ul>
+        </div>
+    </main>
+</body>

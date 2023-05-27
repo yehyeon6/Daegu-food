@@ -1,0 +1,34 @@
+nav {
+	background-color: #333;
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	z-index: 1000;
+}
+
+nav ul {
+	margin: 0;
+	padding: 0;
+	list-style-type: none;
+	display: flex;
+	justify-content: space-around;
+	align-items: center;
+	height: 50px;
+}
+
+nav li {
+	margin: 0;
+	padding: 0;
+}
+
+nav a {
+	color: #fff;
+	text-decoration: none;
+	font-size: 1.2em;
+	padding: 0.5em;
+}
+
+nav a:hover {
+	background-color: #555;
+}

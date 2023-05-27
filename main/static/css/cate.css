@@ -1,0 +1,104 @@
+/* 백그라운 색 */
+body {
+    margin: 0;
+	padding: 0;
+	font-family: Arial, sans-serif;
+    background-color: #f0f0f0;
+}
+
+/* 메인 중앙정렬 아래로 */
+main {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	margin: 100px 100px 0px 100px;
+}
+
+/* 버튼 중앙 */
+form {
+    display: flex;
+    justify-content: center;
+}
+
+/* 버튼 색이랑 크기조절 */
+button {
+    background-color: #289102d4;
+    color: #ffffff;
+    border: 1px solid #2b4f1e93;
+    margin: 10px;
+    padding: 10px 20px;
+    font-size: 16px;
+    border-radius: 5px;
+    cursor: pointer;
+}  
+
+/* 버튼에 마우스 올리면 색 변환 */
+button:hover {
+    background-color: rgb(255, 255, 0);
+    color: black;
+}
+
+/* h2 중앙으로 */
+h2 {
+    text-align: center;
+}
+
+/* 버튼 사이 간격 */
+td {
+    padding: 10px;
+}
+
+/* 페이지 중앙으로 */
+.page{
+    text-align: center;
+    width: 100%;
+}
+
+/* 마진으로 위랑 간격조절 */
+.pagination{
+    list-style: none;
+    display: inline-block;
+    padding: 0;
+    margin:40px 0 40px;
+}
+
+/* 페이징 마다 간격 및 글자 크기 */
+.pagination li{
+    float: left;
+    display: flex;
+    font-size: 20px;
+    text-decoration: none;
+    padding: 5px 15px;
+    line-height: 1.5;
+}
+
+/* 번호 및 화살표,첫,끝 모양+색 */
+.pagination a {
+    color: black;
+    text-decoration: none;
+    padding: 8px 14px;
+    margin: 0;
+    border-radius: 5px;
+    background-color: white;
+    border: 1px solid rgba(120, 120, 120, 0.495);
+}
+
+/* 마우스 올리면 색 변함 */
+.pagination a:hover {
+    background-color: rgb(255, 255, 0);
+    color: rgb(0, 0, 0);
+    border: 1px solid #2b4f1e93;
+}
+
+/* 해당페이지색 */
+.pagination .num-active {
+    color: #ffffff;
+    background-color: #289102d4;
+}
+
+/* 나머지페이지색 */
+.pagination .num {
+    color: #000000;
+    background-color: #ffffff;
+}
